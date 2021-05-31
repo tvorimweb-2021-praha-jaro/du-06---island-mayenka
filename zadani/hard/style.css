@@ -3,20 +3,33 @@ html { box-sizing: border-box; }
 ::before 
 { box-sizing: inherit; }
 
+:root {
+  --white:#FFFFFF;
+  --gray:#696969;
+  --lightgray:#D3D3D3;
+  --background: #f5f5f5;
+  --blue: #629edb;
+  --black:#000000;
+}
+
 body {
-  background-color: #f5f5f5;
+  background-color: var(--background);
   font-family: 'Merriweather', serif;
   font-size: 16px;
   line-height: 1.6;
   margin: 0;
   padding: 0;
+  margin: auto;
 }
+
+/*hlavička*/
 
 h1 {
   font-family: 'Raleway', serif;
   font-size: 60px;
-  color: white;
+  color: var(--white);
   text-align: center;
+  text-shadow: 1px 1px var(--gray);
 }
 
 header {
@@ -28,37 +41,325 @@ header {
 }
 
 header p {
-  color: white;
+  color: var(--white);
   text-align: center;
+  text-shadow: 1px 1px var(--gray);
+  margin-bottom: 2rem;
 }
 
-header .autor {
+.autor {
   font-style: italic;
+  text-shadow: 1px 1px var(--gray);
+  opacity: 0.8;
 }
 
+.rozdeleni {
+  width: 5rem;
+  border: 1px solid var(--white);
+  margin: auto;
+}
+
+/*menu*/
 .menu {
   display: flex;
   flex-direction: column;
-  color: lightgray;
+  color: var(--lightgray);
   text-transform: uppercase;
   align-items: center;
 }
 
-.kontejner {
-  background-color: white;
-  padding: 1rem;
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
 }
+
+li {
+  padding: 0.5rem;
+}
+
+.spodni {
+  width: 200%;
+  margin-left: -5.8rem;
+  border: 0.3px solid var(--lightgray);
+}
+
+.uvod {
+  padding-top: 2rem;
+}
+
+.menu li:hover {
+  color: var(--blue);
+}
+
+/*texty s fotkami*/
+.kontejner {
+  background-color: var(--white);
+}
+
+.kontejner p,
+h2 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.prvni {
+padding-top: 2rem;
+}
+
+.fotopopis,
+.fotopopis a {
+  color: var(--gray);
+  text-align: center;
+  padding-bottom: 1rem;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 1rem;
+}
+
+.foto1 {
+  position: relative;
+}
+
+.fotonazev {
+  color: var(--gray);
+  font-weight: bold;
+  text-align: center;
+  padding-top: 0.5rem;
+}
+
+.linka {
+  width: 5rem;
+  border: 2px solid var(--blue);
+}
+
+/*fotogalerie*/
+.fotogalerie {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.fotogal {
+  width: 100%;
+}
+
+.fotogalerie img {
+  width: 100%;
+}
+
+/*zápatí*/
+footer {
+  margin: 1rem;
+}
+
+footer p {
+  padding-top: 2rem;
+}
+
+footer p,
+footer a {
+  color: var(--gray);
+}
+
+
+
+/*tablet*/
+@media only screen and (min-width: 500px) {
+
+header {
+  padding-left: 0;
+}
+
+/*menu*/  
+/*ul {
+  display: flex;
+  align-items: stretch;
+ justify-content: space-between;
+   width: 100%;*/
+  /*margin: 0;
+  padding: 0;/*
+}
+
+/*li {
+  flex: 0 1 auto;
+}*/
+
+/*.menu li {
+  border: 0.5px solid var(--lightgray);
+  flex: 25%;
+  padding: 0.3rem;
+  text-align: center;
+  border-left: 0px none transparent;
+  border-right: 0px none transparent;
+}*/
+
+/*.uvod {
+  padding-top: 0;
+  margin-left: 2rem;
+}
+
+.menu li .fotogalery {
+   border-right: 0px none transparent;
+}
+
+.fotogalery {
+  margin-right: 2rem;
+}
+
+.spodni {
+  display: none;
+}
+
+.vl {
+  border-right: 0.5px solid var(--lightgray);
+  height: 10px;
+}*/
+
+/*fotky s texty v článku*/
+.fotopopis,
+.fotopopis a {
+  color: var(--white);
+  text-align: center;
+  padding-bottom: 1rem;
+}
+  
+.foto_1 {
+  position: relative;
+}
+
+.foto_1 .fotopopis {
+  position: absolute;
+  bottom: 0;
+  right: 1rem;
+}
+
+/*fotogalerie*/
 
 .fotogalerie {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding-bottom: 1rem;
+  }
+
+.fotogalerie img {
+  height: 100%;
 }
 
-@media only screen and (min-width: 500px) {
+.fotogal {
+  width: 50%;
+  padding: 0;
+} 
+
+.fotogal {
+  float: left;
+  position: relative;
+}
+
+.ftgltext {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: var(--white);
+  color:var(--black);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.fotogal:hover .ftgltext {
+  width: 150px;
+  visibility: visible;
+  opacity: 0.8;
+}
+
+.fotogalerie .fotopopis,
+.fotogalerie a{
+  color: var(--gray);
+  text-align: center;
+  padding-top: 0.5rem;
+}
+
+}
+
+/*desktop*/
+@media only screen and (min-width: 1000px) {
+
+.kontejner {
+  max-width: 960px;
+  margin: auto;
+  margin-top: -4rem;
+}
+
+header {
+  margin: 0;
+  height: 450px;
+}
 
 .menu {
-  flex-direction: row;
-  justify-content: space-evenly;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-  
+
+
+.spodni {
+  width: 90%;
+  margin-left: 2.5rem;
+  border: 0.3px solid var(--lightgray);
+}
+
+.uvod {
+  margin-top: 2rem;
+}
+
+.uvodniblok {
+  display: block;
+}
+
+.menu {
+  float: left;
+  width: 30%;
+}
+
+li {
+  text-align: left;
+  margin-left: 2rem;
+}
+
+.spodni {
+  width: 90%;
+  border: 0.5px solid var(--lightgray);
+}
+
+.prvni {
+  float: right;
+  width: 70%;
+}
+
+.proc {
+  margin-right: 15rem;
+}
+
+.videt {
+  margin-left: 15rem;
+}
+
+.videt2 {
+  margin-left: 15rem;
+}
+
+
+.fotogal {
+  width: calc(100%/3);
+}
+
+footer {
+  width: 960px;
+  margin: auto;
+}
+
 }
