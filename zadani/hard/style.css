@@ -33,30 +33,41 @@ h1 {
 }
 
 header {
+  max-width: 100%;
   background-image: url("images/island-hlavicka.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  background-color: var(--blue);
   padding: 1rem;
 }
 
-header p {
+header .uvodni {
   color: var(--white);
   text-align: center;
   text-shadow: 1px 1px var(--gray);
   margin: 0 2rem 2rem 2rem;
 }
 
-.autor {
+header .autor {
   font-style: italic;
+  text-align: center;
+  color: var(--white);
   text-shadow: 1px 1px var(--gray);
   opacity: 0.8;
+  position: relative;
+  padding-top: 1rem;
 }
 
-.rozdeleni {
-  width: 5rem;
-  border: 1px solid var(--white);
-  margin: auto;
+.autor:before {
+position: absolute;
+content: '';
+background-color:var(--white);
+width:5rem;
+height: 2px;
+top: 0;
+margin-left: 40px;
+margin-right: auto;
 }
 
 .kontejner {
@@ -77,16 +88,17 @@ ul {
   margin: 0;
   padding: 0;
   text-align: center;
+  width: 80%;
 }
 
 li {
   padding: 0.5rem;
 }
 
-.spodni {
-  width: 200%;
-  margin-left: -5.8rem;
-  border: 0.3px solid var(--lightgray);
+.menu ul li {
+  display: flex;
+  border-bottom: 0.5px solid var(--lightgray); 
+  justify-content: center;
 }
 
 .uvod {
@@ -107,7 +119,7 @@ li {
   background-color: var(--white);
 }
 
-.kontejner p,
+.kontejner .text,
 h2 {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -141,9 +153,23 @@ img {
   padding-top: 0.5rem;
 }
 
-.linka {
-  width: 5rem;
-  border: 2px solid var(--blue);
+.proclinka,
+.videtlinka,
+ .fotolinka {
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.proclinka:after,
+.videtlinka:after,
+.fotolinka:after {
+  position: absolute;
+  content: '';
+  background-color:var(--blue);
+  width:5rem;
+  height: 3px;
+  bottom: 0;
+  left: 0;
 }
 
 /*fotogalerie*/
@@ -183,7 +209,7 @@ header {
   padding-left: 0;
 }
 
-header p {
+header .uvodni {
   margin-left: 2rem;
   margin-right: 2rem;
 }
@@ -318,20 +344,13 @@ header {
   height: 500px;
 }
 
-header p {
+header .uvodni {
+max-width: 1200px;
 margin-left: 15rem;
 margin-right: 15rem;
 }
 
 /*menu a text vlevo*/
-
-.menu ul li {
-  display: block;
-  width: 100%;
-  border-top: 0;
-  border-left: 0;
-  width: 70%;
-}
 
 .menu {
   float: left;
@@ -347,8 +366,15 @@ li {
   margin-left: 2rem; 
 }
 
-.uvodniblok {
+.menu ul li {
   display: block;
+  border-top: 0;
+  border-left: 0;
+  width: 70%;
+}
+
+.uvodniblok {
+  display: flow-root;
 }
 
 .prvni {
